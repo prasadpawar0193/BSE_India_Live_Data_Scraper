@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BSE India Live Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>BSE India - Top Gainers</h1>
+
+    <p class="subtitle">
+        Live Equity Market Data Dashboard
+    </p>
+
+    <!-- Refresh button -->
+    <form action="/" method="GET" id="refreshForm">
+        <button type="submit" id="refreshButton">
+            ↻ Refresh Data
+        </button>
+    </form>
+
+    <!-- Loading message -->
+    <div id="loadingMessage" class="loading" style="display: none;">
+        Fetching latest BSE stock data. Please wait...
+    </div>
+
+    <!-- Data timestamp -->
+    {% if fetched_at %}
+        <p class="timestamp">
+            Last updated: {{ fetched_at }}
+        </p>
+    {% endif %}
+
+    <!-- Error message -->
+    {% if error %}
+        <div class="error">
+            {{ error }}
+        </div>
+    {% endif %}
+
+    <!-- Stock table -->
+    <table>
+
+        <thead>
+            <tr>
+                <th>Security Code / Symbol</th>
+                <th>Company Name</th>
+                <th>Current Price (LTP)</th>
+                <th>Change %</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% if stocks %}
+
+                {% for stock in stocks %}
+                <tr>
+                    <td>{{ stock.security_code }}</td>
+                    <td>{{ stock.company_name }}</td>
+                    <td>{{ stock.ltp }}</td>
+                    <td class="positive">
+                        {{ stock.change_percent }}
+                    </td>
+                </tr>
+                {% endfor %}
+
+            {% else %}
+
+                <tr>
+                    <td colspan="4">
+                        No live data available.
+                    </td>
+                </tr>
+
+            {% endif %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<!-- Show loading message when refreshing -->
+<script>
+
+    document.getElementById("refreshForm").addEventListener(
+        "submit",
+        function () {
+
+            document.getElementById("loadingMessage").style.display = "block";
+
+            document.getElementById("refreshButton").disabled = true;
+
+            document.getElementById("refreshButton").innerText =
+                "Refreshing...";
+
+        }
+    );
+
+</script>
+
+</body>
+</html>

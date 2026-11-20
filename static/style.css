@@ -1,0 +1,135 @@
+
+/* General page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Main dashboard container */
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Dashboard heading */
+h1 {
+    text-align: center;
+    color: #1f2937;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* Refresh button */
+#refreshForm {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#refreshButton {
+    background-color: #1769aa;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#refreshButton:hover {
+    background-color: #0e4f85;
+}
+
+#refreshButton:disabled {
+    background-color: #888;
+    cursor: not-allowed;
+}
+
+/* Loading message */
+.loading {
+    text-align: center;
+    color: #1769aa;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+/* Last updated timestamp */
+.timestamp {
+    text-align: right;
+    color: #555;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+/* Error message */
+.error {
+    background-color: #ffe5e5;
+    color: #b00020;
+    border: 1px solid #ffb3b3;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+/* Stock table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+/* Table headings */
+thead {
+    background-color: #1769aa;
+    color: white;
+}
+
+th,
+td {
+    padding: 13px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Alternate row background */
+tbody tr:nth-child(even) {
+    background-color: #f2f6fa;
+}
+
+/* Hover effect */
+tbody tr:hover {
+    background-color: #e5eff8;
+}
+
+/* Positive percentage */
+.positive {
+    color: #16803c;
+    font-weight: bold;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+
+    .container {
+        padding: 12px;
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 650px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+}
