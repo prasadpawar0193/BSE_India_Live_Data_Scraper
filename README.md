@@ -1,3 +1,4 @@
+
 # BSE India Live Data Scraper and Dashboard
 
 ## 1. Project Overview
@@ -139,3 +140,6 @@ The application includes basic error handling:
 ## 11. Conclusion
 
 This project demonstrates practical implementation of web scraping, browser automation, HTML parsing, Python backend development, and Flask-based dashboard development using BSE India market data.
+
+# BSE_India_Live_Data_Scraper
+Live BSE India stock market data scraper and Flask dashboard using Selenium and BeautifulSoup.
